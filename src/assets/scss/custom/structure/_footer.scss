@@ -1,34 +1,61 @@
 // 
-// _footer.scss
-// 
+// footer.scss
+//
 
 .footer {
     bottom: 0;
-    padding: 20px calc(#{$grid-gutter-width} / 2);
+    padding: 19px 15px 20px;
     position: absolute;
     right: 0;
+    color: $text-muted;
+    left: $leftbar-width;
+    border-top: 1px solid $card-border-color;
+
+    .footer-links {
+        a {
+            color: $text-muted;
+            margin-left: 1.5rem;
+            transition: all .4s;
+            &:hover {
+                color: $gray-900;
+            }
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.footer-alt {
+    left: 0 !important;
     text-align: center;
-    color: var(--#{$prefix}footer-color);
-    left: 240px;
-    height: $footer-height;
-    background-color: var(--#{$prefix}footer-bg);
-}
-  
-@media (max-width: 992px) {
-    .footer {
-        left: 0;
-    }
+    background-color: transparent;
 }
 
-// Enlarge menu
-.vertical-collpsed {
-    .footer {
-        left: $sidebar-collapsed-width;
-    }
-}
-
-body[data-layout="horizontal"] {
+@include media-breakpoint-down(sm) {
     .footer {
         left: 0 !important;
-    }  
+        text-align: center;
+    }
+}
+
+body[data-layout-mode="horizontal"] {
+    .footer {
+        left: 0 !important;
+    }
+
+    &[data-layout-width="boxed"] {
+        .footer {
+            max-width: $boxed-layout-width !important;
+        }
+    }
+}
+
+body[data-layout-mode="detached"] {
+    @include media-breakpoint-up(lg) {
+        .footer {
+            position: inherit;
+            margin: 0 10px;
+        }
+    }
 }

@@ -4,23 +4,22 @@
 
 // Used invoice page
 @media print {
-    .vertical-menu,
+    .left-side-menu,
     .right-bar,
     .page-title-box,
-    .navbar-header,
+    .navbar-custom,
     .footer {
-        display: none !important;
+        display: none;
     }
     .card-body,
-    .main-content,
+    .content-page,
     .right-bar,
-    .page-content,
+    .content,
     body {
         padding: 0;
         margin: 0;
     }
-
-    .card{
-        border: 0;
+    .card {
+        border: none;
     }
 }

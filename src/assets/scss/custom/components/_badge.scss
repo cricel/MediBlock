@@ -1,70 +1,37 @@
 // 
-// _badge.scss
+// _badges.scss
 // 
 
+// Lighten badge
+@mixin badge-variant-light($bg) {
+    color: $bg;
+    background-color: rgba($bg, 0.18);
+    box-shadow: none;
+}
 
-.badge {
-  &[href] {
-    &:hover,
-    &:focus {
-      color: $white;
+// Outline badge
+
+@mixin badge-variant-outline($bg) {
+    color: $bg;
+    border: 1px solid $bg;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+// Lighten badge (soft)
+
+@each $color,
+$value in $theme-colors {
+    .badge-soft-#{$color} {
+        @include badge-variant-light($value);
     }
-  }
 }
 
-// Soft badge
-@mixin badge-variant-soft($bg) {
-  color: $bg;
-  background-color: rgba($bg, 0.18);
+// Outline badge
 
-  &[href] {
-    &:hover,
-    &:focus {
-      color: $bg;
-      text-decoration: none;
-      background-color: rgba($bg, 0.4);
+@each $color,
+$value in $theme-colors {
+    .badge-outline-#{$color} {
+        @include badge-variant-outline($value);
     }
-  }
-}
-
-@each $color, $value in $theme-colors {
-  .badge {
-  &.bg-#{$color} {
-    &[href] {
-      &:hover,
-      &:focus {
-        background-color: darken($value, 4%) !important;
-      }
-    }
-  }
-}
-
-.badge{
-  &.bg-light{
-    color: $body-color;
-
-    &[href] {
-      &:hover,
-      &:focus {
-        color: $body-color;
-      }
-    }
-  }
-}
-
-  .badge-soft-#{$color} {
-      @include badge-variant-soft($value);
-  }
-  
-}
-
-.rounded-pill{
-   padding-right: .6em;
-    padding-left: .6em;
-}
-
-// Dark badge
-
-.badge.bg-dark{
-  color: $light;
 }

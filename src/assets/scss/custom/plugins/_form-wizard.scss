@@ -1,162 +1,329 @@
 //
-// Form Wizard
+// formm-wizard.scss
 //
 
-.form-wizard-wrapper {
-    label {
-      font-size: 14px;
-      text-align: right;
-    }
-  }
-  
-  .wizard{
-
-    ul{
-        list-style: none !important;
-        padding: 0;
-        margin: 0;
-    }
-    // step
-    >.steps {
-
-        > ul > li {
-            width: 25%;
-        }
-
-        .current-info{
-            position: absolute;
-            left: -999em;
-        }
-
-      a, a:active, a:hover {
-        margin: 3px;
-        padding: 15px;
-        display: block;
-        width: auto;
-        border-radius: 5px;
-      }
-  
-      .current {
-        a, a:active, a:hover {
-          background-color: $primary;
-          color: $white;
-          .number {
-            border: 2px solid $white
-          }
-        }
-      }
-  
-      .disabled, .done {
-        a, a:active, a:hover {
-          background-color: lighten($primary,30%);
-          color: $primary;
-          .number {
-            border-color: $primary;
-          }
-        }
-      }
-  
-      .number {
-        font-size: 16px;
-        padding: 5px;
-        border-radius: 50%;
-        border: 2px solid $white;
-        width: 38px;
-        display: inline-block;
-        font-weight: 500;
-        text-align: center;
-        margin-right: 10px;
-        background-color: rgba($primary, 0.25);
-      }
-    }
-  
-    // content
-    >.content {
-      background-color: transparent;
-      margin: 0 5px;
-      border-radius: 0;
-      min-height: 150px;
-      > .title{
-        position: absolute;
-        left: -999em;
-      }
-      >.body {
-        width: 100%;
-        height: 100%;
-        padding: 30px 0 0;
-        position: static
-      }
-    }
-  
-    // actions
-  
-    >.actions {
-        position: relative;
-        display: block;
-        text-align: right;
-        width: 100%;
-        > ul {
-            display: inline-block;
-            text-align: right;
-             > li{
-                display: block;
-                margin: 0 0.5em;
-            }
-        }
-      a, a:active, a:hover {
-        background-color: $primary;
-        border-radius: 4px;
-        padding: 8px 15px;
-        color: $white;
-      }
-  
-      
-      .disabled {
-        a, a:active, a:hover {
-          opacity: .65;
-          background-color: $primary;
-          color: $white;
-          cursor: not-allowed;
-        }
-      }
-    }
-
-    > .steps, > .actions {
-        > ul {
-            > li{
-                float: left;
-            }
-        }
-    }
+.sw-main{
+    box-shadow: none;
+    border: 1px solid darken($gray-300, 2%);
     
-  }
-  
-  
-  @media (max-width: 768px) {
-    .wizard {
-      > .steps {
-        > ul {
-          > li {
-            width: 50%;
-          }
-        }
-      }
+    .sw-toolbar{
+        background: transparent;
+        padding: 10px;
     }
-    .form-wizard-wrapper {
-      label {
+    .step-content{
+        background-color: transparent !important;
         text-align: left;
-      }
     }
-  }
-  
-  @media (max-width: 520px) {
-    .wizard {
-      > .steps {
-        > ul {
-          > li {
-            width: 100%;
-          }
+}
+
+// sw-theme-default
+
+.sw-theme-default{
+    .step-content{
+        background-color: transparent;
+    }
+
+    >ul.step-anchor{
+        >li{
+            >a{
+                color: $gray-600;
+                &:hover{
+                    color: $gray-600; 
+                }
+                &:after{
+                    background: $primary;
+                }
+            }
+            &.active{
+                >a{
+                    color: $primary !important;
+                }
+            }
+            &.done{
+                >a{
+                    color: $gray-600 !important;
+                    &:after{
+                        background: $success;
+                    }
+                }
+            }
         }
-      }
     }
-  }
+}
+
+// sw-theme-arrows
+
+.sw-theme-arrows{
+    >ul.step-anchor{
+        background: $gray-300;
+        border-bottom-color: $gray-300;
+        >li{
+            a{
+                padding: 10px 0 10px 45px;
+                &:hover{
+                    padding: 10px 0 10px 45px;
+                    isolation: inherit;
+                }
+            }
+
+            &:first-child{
+                a{
+                    padding-left: 15px;
+                }
+            }
+
+            >a, >a:hover{
+                background: $gray-300;
+                color: $gray-600;
+            }
+
+            >a{
+                &::after{
+                    border-left-color: $gray-300 !important;
+                    content: " ";
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-top: 50px solid transparent;
+                    border-bottom: 50px solid transparent;
+                    border-left: 30px solid transparent;
+                    border-right: 0;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -50px;
+                    left: 100%;
+                    z-index: 2;
+                }
+                &::before{
+                    border-left-color: $gray-300 !important;
+                    content: " ";
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-top: 50px solid transparent;
+                    border-bottom: 50px solid transparent;
+                    border-left: 30px solid transparent;
+                    border-right: 0;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -50px;
+                    margin-left: 1px;
+                    left: 100%;
+                    z-index: 1;
+                }
+            }
+            &.active{
+                >a{
+                    background: $primary !important;
+                    border-color: $primary !important;
+                    isolation: inherit;
+                    &:after{
+                        border-left-color: $primary !important;
+                        border-right: 0 !important;
+                    }
+                }
+            }
+
+            &.done{
+                >a{
+                    background: lighten($primary, 24%) !important;
+                    border-color: lighten($primary, 24%) !important;
+                    color: $primary !important;
+                    &:after{
+                        border-left-color: lighten($primary, 24%) !important;
+                        border-right: 0 !important;
+                    }
+                    &::before{
+                        border-left-color: lighten($primary, 24%) !important;
+                        border-right: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// sw-theme-circles
+
+.sw-theme-circles{
+    >ul.step-anchor{
+        margin-top: 30px;
+        background-color: transparent;
+        &:before{
+            background-color:$gray-300;
+        }
+        >li{
+            margin-left: 40px;
+            margin-right: 0;
+            >a{
+                font-size: 14px;
+                width: 40px;
+                height: 40px;
+                padding: 12px 0;
+                background-color:$gray-300;
+                border-color: $gray-200 !important;
+                box-shadow: none !important;
+                &:hover{
+                    background-color:$gray-300;
+                    
+                }
+
+                small {
+                    bottom: -20px;
+                    width: 100%;
+                }
+            }
+
+            >a, >a:hover{
+                color: $gray-600;
+                small{
+                    color: $gray-600;
+                }
+            }
+            &.active{
+                >a{
+                    background: $primary !important;
+                    border-color: $primary !important;
+                    color: $white !important;
+                    >small{
+                        color: $primary;
+                    }
+                }
+            }
+
+            &.done{
+                >a{
+                    background: $success !important;
+                    border-color: $success !important;
+                    color: $white !important;
+                    >small{
+                        color: $success;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// sw-theme-dots
+
+.sw-theme-dots{
+    >ul.step-anchor{
+        background-color: transparent;
+        &:before{
+            background-color: $gray-300;
+        }
+        >li{
+            >a{
+                &:before{
+                    bottom: -6px;
+                    background: $gray-300;
+                }
+
+                &:after{
+                    left: 44%;
+                    bottom: -8px;
+                    background: $gray-400;
+                }
+            }
+            >a, >a:hover, >a:focus{
+                color: $gray-600;
+            }
+            &.active{
+                >a{
+                    color: $primary;
+                    &:after{
+                        background: $primary;
+                    }
+                }
+            }
+            &.done{
+                >a{
+                    color: $success;
+                    &:after{
+                        background: $success;
+                    }
+                }
+            }
+        }
+    }
+}
+[dir="rtl"] .sw-theme-dots{
+    >ul.step-anchor{
+        >li{
+            >a{
+                &:after{
+                    left: 40%;
+                }
+            }
+        }
+    }
+}
+
+
+
+// responsive
+
+@media (max-width: 768px){
+    .sw-main{
+        >ul.step-anchor{
+            >li{
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    .sw-theme-arrows{
+        >ul.step-anchor{            
+            >li{
+                a{
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
+    .sw-theme-circles{
+        >ul.step-anchor{
+            margin-bottom: 10px;
+            &::before{
+                width: 0px;
+            }
+            >li{
+                margin-bottom: 10px;
+                >a{
+                    >small{
+                        bottom: 14px;
+                        left: 76px;
+                    }
+                }
+            }
+        }
+    }
+    .sw-theme-dots{
+        >ul.step-anchor{
+            &::before{
+                left: 10px;
+                right: 0;
+                margin-right: 10px;
+                margin-left: 0px;
+            }
+            >li{
+                margin: 0 20px;
+                >a{
+                    text-align: left;
+                    &::before{
+                        left: -23px;
+                        margin-right: 10px;
+                        margin-left: 0px;
+                    }
+                    &::after {
+                        top: -36px;
+                        left: -35px !important;
+                        margin-right: 10px;
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+    }   
+}

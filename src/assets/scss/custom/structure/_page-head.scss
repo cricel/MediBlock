@@ -1,16 +1,37 @@
 // 
-// Page-title
-// 
+// page-title.scss
+//
 
 .page-title-box {
-    padding: 24px 0px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin: 0 -27px 0;
+    padding: 20px 27px;
 
-    .breadcrumb {
-        background-color: transparent;
-        padding: 0;
+    .page-title {
+        font-size: 1.05rem;
+        margin: 0;
     }
 
-    h4 {
-        font-weight: 700;
+    .breadcrumb {
+        padding: 0;
+    }
+}
+
+@media (max-width: 639px) {
+    .page-title-box {
+        display: block;
+
+        .page-title {
+            display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .page-title-right {
+            display: block;
+            padding-top: 5px;
+        }
     }
 }

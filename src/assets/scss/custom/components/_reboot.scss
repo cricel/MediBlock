@@ -1,54 +1,32 @@
-/* =============
-   General
-============= */
-
-html {
-  position: relative;
-  min-height: 100%;
+//
+// reboot.scss
+//
+body {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    &.loading {
+        visibility: hidden;
+        opacity: 0;
+    }
 }
 
-.h1,.h2,.h3,.h4,.h5,.h6,
-h1,h2,h3,h4,h5,h6 {
-  font-family: $font-family-secondary;
-  font-weight: $font-weight-semibold;
-}
-
-
-p{
-  line-height: 1.7;
-}
-
-a {
-  text-decoration: none !important;
-}
-
+// Forms
 label {
-  font-weight: $font-weight-medium;
-  margin-bottom: $form-label-margin-bottom;
+    font-weight: $font-weight-bold;
 }
 
-b,
-strong {
-  font-weight: $font-weight-medium;
+
+button:focus {
+    outline: none;
 }
 
-// blockquote
 
-.blockquote {
-  padding: 10px 20px;
-  border-left: 4px solid var(--#{$prefix}border-color);
-}
-
-.blockquote-reverse {
-  border-left: 0;
-  border-right: 4px solid var(--#{$prefix}border-color);
-  text-align: right;
-}
-
-.text-white{
-  color: $white !important;
+.row >* {
+    position: relative;
 }
 
 a{
-  color: $primary;
+    &:focus{
+        outline: none;
+    }
 }

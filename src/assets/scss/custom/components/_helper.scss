@@ -1,89 +1,120 @@
 //
-// _helper.scss
+// helper.scss
 //
 
-.font-size-11 {
-  font-size: 11px !important;
+// Minimum width
+
+.width-xs {
+    min-width: 80px;
 }
 
-.font-size-12 {
-  font-size: 12px !important;
+.width-sm {
+    min-width: 100px;
 }
 
-.font-size-13 {
-  font-size: 13px !important;
+.width-md {
+    min-width: 120px;
 }
 
-.font-size-14 {
-  font-size: 14px !important;
+.width-lg {
+    min-width: 140px;
 }
 
-.font-size-15 {
-  font-size: 15px !important;
-}
-
-.font-size-16 {
-  font-size: 16px !important;
-}
-
-.font-size-17 {
-  font-size: 17px !important;
-}
-
-.font-size-18 {
-  font-size: 18px !important;
-}
-
-.font-size-20 {
-  font-size: 20px !important;
-}
-
-.font-size-22 {
-  font-size: 22px !important;
-}
-
-.font-size-24 {
-  font-size: 24px !important;
-}
-
-// Font weight help class
-
-.fw-medium {
-  font-weight: $font-weight-medium !important;
-}
-
-.fw-semibold {
-  font-weight: $font-weight-semibold !important;
+.width-xl {
+    min-width: 160px;
 }
 
 
-// Social
-
-.social-list-item {
-  height: 2rem;
-  width: 2rem;
-  line-height: calc(2rem - 2px);
-  display: block;
-  border: 1px solid $gray-500;
-  border-radius: 50%;
-  color: $gray-500;
-  text-align: center;
+// Font Family
+.font-family-primary {
+    font-family: $font-family-base;
 }
 
-
-.w-xs {
-  min-width: 80px;
-}
-.w-sm {
-  min-width: 95px;
-}
-.w-md {
-  min-width: 110px;
-}
-.w-lg {
-  min-width: 140px;
+.font-family-secondary {
+    font-family: $font-family-secondary;
 }
 
-.w-xl {
-  min-width: 160px;
+// Text specify lines (Only chrome browser support)
+
+.sp-line-1,
+.sp-line-2,
+.sp-line-3,
+.sp-line-4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.sp-line-1 {
+    -webkit-line-clamp: 1;
+}
+
+.sp-line-2 {
+    -webkit-line-clamp: 2;
+}
+
+
+.sp-line-3 {
+    -webkit-line-clamp: 3;
+}
+
+.sp-line-4 {
+    -webkit-line-clamp: 4;
+}
+
+// Icons
+.icon-dual {
+    color: $text-muted;
+    fill: rgba($text-muted, 0.12);
+}
+
+@each $color,
+$value in $theme-colors {
+    .icon-dual-#{$color} {
+        color: $value;
+        fill: rgba($value, 0.16);
+    }
+}
+
+.icon-xs {
+    height: 16px;
+    width: 16px;
+}
+
+.icon-sm {
+    height: 24px;
+    width: 24px;
+}
+
+.icon-md {
+    height: 32px;
+    width: 32px;
+}
+
+.icon-lg {
+    height: 40px;
+    width: 40px;
+}
+
+.icon-xl {
+    height: 48px;
+    width: 48px;
+}
+
+.icon-xxl {
+    height: 60px;
+    width: 60px;
+}
+
+// Hover item
+.item-hovered {
+    &:hover {
+        background-color: $dropdown-link-hover-bg;
+    }
+}
+
+// cursor
+.cursor-pointer {
+    cursor: pointer;
 }

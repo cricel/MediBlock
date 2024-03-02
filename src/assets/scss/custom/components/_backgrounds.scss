@@ -9,3 +9,7 @@ $value in $theme-colors {
         background-color: rgba(($value), 0.25) !important;
     }
 }
+
+.bg-ghost {
+    opacity: 0.4;
+}

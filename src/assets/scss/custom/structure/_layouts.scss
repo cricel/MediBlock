@@ -1,44 +1,71 @@
-// 
-// _layouts.scss
-// 
+//
+// layouts.scss
+//
 
-body[data-layout-size="boxed"] {
-    background-color: var(--#{$prefix}boxed-body-bg);
-    #layout-wrapper {
-        background-color: var(--#{$prefix}body-bg);
+body[data-layout-width="boxed"] {
+    #wrapper {
         max-width: $boxed-layout-width;
         margin: 0 auto;
-        box-shadow: var(--#{$prefix}box-shadow-sm);
+        box-shadow: $box-shadow-lg;
     }
 
-    #page-topbar {
+    .navbar-custom {
         max-width: $boxed-layout-width;
         margin: 0 auto;
     }
 
     .footer {
         margin: 0 auto;
-        max-width: calc(#{$boxed-layout-width} - #{$sidebar-width});
+        max-width: calc(#{$boxed-layout-width} - #{$leftbar-width});
     }
 
-    &.vertical-collpsed {
+    &[data-sidebar-size="condensed"] {
         .footer {
-            max-width: calc(#{$boxed-layout-width} - #{$sidebar-collapsed-width});
+            max-width: calc(#{$boxed-layout-width} - #{$leftbar-width-condensed});
+        }
+    }
+
+    &[data-sidebar-size="compact"] {
+        .footer {
+            max-width: calc(#{$boxed-layout-width} - #{$leftbar-width-sm});
         }
     }
 }
 
-// Horizontal Boxed Layout
-
-body[data-layout="horizontal"][data-layout-size="boxed"]{
-    #page-topbar, #layout-wrapper, .footer {
-        max-width: 100%;
+// Body min-height set
+@include media-breakpoint-up(md) {
+    body[data-layout-width="boxed"][data-sidebar-size="condensed"] {
+        .content-page {
+            min-height: calc(#{$body-min-height} - #{$leftbar-width-condensed});
+        }
     }
+}
 
-    #layout-wrapper {
-        box-shadow: none;
-    }
-    .container-fluid, .navbar-header {
-        max-width: $boxed-layout-width;
+// Scrollable Layout
+@include media-breakpoint-up(xl) {
+    body[data-layout-menu-position="scrollable"]:not([data-sidebar-size="condensed"]):not([data-sidebar-size="compact"]):not([data-layout-mode="two-column"]) {
+        padding-bottom: 0;
+
+        #wrapper {
+            display: flex;
+        }
+
+        .navbar-custom,
+        .topnav {
+            position: absolute;
+        }
+
+        .left-side-menu {
+            position: relative;
+            min-width: $leftbar-width;
+            max-width: $leftbar-width;
+            padding: 20px 0 calc(#{$topbar-height} + 20px);
+        }
+
+        .content-page {
+            margin-left: 0;
+            width: 100%;
+            padding-bottom: 60px;
+        }
     }
 }
