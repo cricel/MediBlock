@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate, Link } from "react-router-dom";
-import { Button, Alert, Row, Col } from "react-bootstrap";
+import { Button, Alert, Row, Col, ToggleButton } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -89,22 +89,22 @@ const Register = () => {
 
       <AuthLayout bottomLinks={<BottomLink />}>
         <div className="auth-logo mx-auto">
-          <Link to="/" className="logo logo-dark text-center">
+          <Link to="#" className="logo logo-dark text-center">
             <span className="logo-lg">
               <img src={logoDark} alt="" height="24" />
             </span>
           </Link>
 
-          <Link to="/" className="logo logo-light text-center">
+          {/* <Link to="/" className="logo logo-light text-center">
             <span className="logo-lg">
               <img src={logoLight} alt="" height="24" />
             </span>
-          </Link>
+          </Link> */}
         </div>
 
         <h6 className="h5 mb-0 mt-3">{t("Create your account")}</h6>
         <p className="text-muted mt-1 mb-4">
-          {t("Create a free account and start using Shreyu")}
+          {t("Create a free account and start using MediBlock")}
         </p>
 
         {error && (
@@ -132,7 +132,7 @@ const Register = () => {
             type="email"
             name="email"
             startIcon={<FeatherIcons icon={"mail"} className="icon-dual" />}
-            placeholder={t("hello@coderthemes.com")}
+            placeholder={t("Enter your Email")}
             containerClass={"mb-3"}
           />
           <FormInput

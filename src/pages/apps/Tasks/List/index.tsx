@@ -36,7 +36,7 @@ const TaskList = () => {
           { label: "Tasks", path: "/apps/tasks/list" },
           { label: "Tasks List", path: "/apps/tasks/list", active: true },
         ]}
-        title={"Tasks List"}
+        title={"Medical History"}
       />
       <Row>
         <Col xl={8}>
@@ -44,50 +44,6 @@ const TaskList = () => {
             <Col>
               <Card>
                 <Card.Body>
-                  <Row>
-                    <Col sm={3}>
-                      <Link to="#" className="btn btn-primary">
-                        <i className="uil uil-plus me-1"></i>Add New
-                      </Link>
-                    </Col>
-                    <Col sm={9}>
-                      <div className="float-sm-end mt-3 mt-sm-0">
-                        <div className="task-search d-inline-block mb-3 mb-sm-0 me-sm-1">
-                          <form>
-                            <div className="input-group">
-                              <input
-                                type="text"
-                                className="form-control search-input"
-                                placeholder="Search..."
-                              />
-                              <span className="uil uil-search icon-search"></span>
-                              <Button
-                                variant="soft-primary"
-                                className="input-group-text"
-                                type="button"
-                              >
-                                <i className="uil uil-file-search-alt"></i>
-                              </Button>
-                            </div>
-                          </form>
-                        </div>
-                        <Dropdown className="d-inline-block" align="end">
-                          <Dropdown.Toggle
-                            variant="secondary"
-                            className="cursor-pointer"
-                          >
-                            <i className="uil uil-sort-amount-down"></i>
-                          </Dropdown.Toggle>
-                          <Dropdown.Menu>
-                            <Dropdown.Item>Due Date</Dropdown.Item>
-                            <Dropdown.Item>Added Date</Dropdown.Item>
-                            <Dropdown.Item>Assignee</Dropdown.Item>
-                          </Dropdown.Menu>
-                        </Dropdown>
-                      </div>
-                    </Col>
-                  </Row>
-
                   <Row className="mt-3">
                     <Col>
                       {/* tasks */}

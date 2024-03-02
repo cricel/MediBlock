@@ -107,7 +107,7 @@ const dashboardRoutes: RoutesProps = {
     {
       path: "/",
       name: "Root",
-      element: <Navigate to="/dashboard/ecommerce" />,
+      element: <Navigate to="/apps/tasks/list" />,
       route: PrivateRoute,
     },
     {

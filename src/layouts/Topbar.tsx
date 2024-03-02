@@ -29,6 +29,7 @@ import avatar4 from "../assets/images/users/avatar-4.jpg";
 import logoSm from "../assets/images/logo-sm.png";
 import logoDark from "../assets/images/logo-dark.png";
 import logoLight from "../assets/images/logo-light.png";
+import Profile from "../pages/other/Profile";
 
 export interface NotificationItem {
   id: number;
@@ -85,16 +86,6 @@ const Notifications: NotificationItem[] = [
 
 // get the profilemenu
 const ProfileMenus = [
-  {
-    label: "My Account",
-    icon: "user",
-    redirectTo: "/",
-  },
-  {
-    label: "Lock Screen",
-    icon: "lock",
-    redirectTo: "/auth/lock-screen",
-  },
   {
     label: "Logout",
     icon: "log-out",
@@ -228,39 +219,12 @@ const Topbar = ({
           )}
 
           <ul className="list-unstyled topnav-menu float-end mb-0">
-            <li className="d-none d-lg-block">
-              <TopbarSearch items={SearchResults} />
-            </li>
-
-            <li className="dropdown d-inline-block d-lg-none">
-              <SearchDropdown />
-            </li>
-            <li className="dropdown d-none d-lg-inline-block">
-              <MaximizeScreen />
-            </li>
-            <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-              <AppsDropdown />
-            </li>
-            <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-              <LanguageDropdown />
-            </li>
-            <li className="dropdown notification-list topbar-dropdown">
-              <NotificationDropdown notifications={Notifications} />
-            </li>
             <li className="dropdown notification-list topbar-dropdown">
               <ProfileDropdown
                 profilePic={profilePic}
                 menuItems={ProfileMenus}
-                username={"Nik Patel"}
+                username={"Satoshi Nakamoto"}
               />
-            </li>
-            <li className="dropdown notification-list">
-              <button
-                className="nav-link right-bar-toggle arrow-none btn btn-link shadow-none"
-                onClick={handleRightSideBar}
-              >
-                <FeatherIcon icon="settings" />
-              </button>
             </li>
           </ul>
 
@@ -301,10 +265,6 @@ const Topbar = ({
                   <span></span>
                 </div>
               </Link>
-            </li>
-
-            <li className="dropdown d-none d-xl-block">
-              <CreateNew otherOptions={otherOptions} />
             </li>
           </ul>
         </div>

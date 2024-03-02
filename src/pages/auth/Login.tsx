@@ -89,7 +89,7 @@ const Login = () => {
 
       <AuthLayout bottomLinks={<BottomLink />}>
         <div className="auth-logo mx-auto">
-          <Link to="/" className="logo logo-dark text-center">
+          <Link to="#" className="logo logo-dark text-center">
             <span className="logo-lg">
               <img src={logoDark} alt="" height="24" />
             </span>
@@ -104,7 +104,7 @@ const Login = () => {
 
         <h6 className="h5 mb-0 mt-3">{t("Welcome back!")}</h6>
         <p className="text-muted mt-1 mb-4">
-          {t("Enter your email address and password to access admin panel.")}
+          {t("Enter your email address and password to access your dashboard panel.")}
         </p>
 
         {error && (
@@ -116,7 +116,7 @@ const Login = () => {
         <VerticalForm<UserData>
           onSubmit={onSubmit}
           resolver={schemaResolver}
-          defaultValues={{ email: "shreyu@coderthemes.com", password: "test" }}
+          defaultValues={{ email: "", password: "" }}
           formClass="authentication-form"
         >
           <FormInput
@@ -124,7 +124,7 @@ const Login = () => {
             name="email"
             label={t("Email Address")}
             startIcon={<FeatherIcons icon={"mail"} className="icon-dual" />}
-            placeholder={t("hello@coderthemes.com")}
+            placeholder={t("Enter your Email")}
             containerClass={"mb-3"}
           />
           <FormInput
@@ -134,7 +134,7 @@ const Login = () => {
             startIcon={<FeatherIcons icon={"lock"} className="icon-dual" />}
             action={
               <Link
-                to="/auth/forget-password"
+                to="#"
                 className="float-end text-muted text-unline-dashed ms-1"
               >
                 {t("Forgot your password?")}
@@ -159,21 +159,6 @@ const Login = () => {
           </div>
         </VerticalForm>
 
-        <div className="py-3 text-center">
-          <span className="fs-16 fw-bold">{t("OR")}</span>
-        </div>
-        <Row>
-          <Col xs={12} className="text-center">
-            <Link to="#" className="btn btn-white mb-2 mb-sm-0 me-1">
-              <i className="uil uil-google icon-google me-2"></i>
-              {t("With Google")}
-            </Link>
-            <Link to="#" className="btn btn-white mb-2 mb-sm-0">
-              <i className="uil uil-facebook me-2 icon-fb"></i>
-              {t("With Facebook")}
-            </Link>
-          </Col>
-        </Row>
       </AuthLayout>
     </>
   );

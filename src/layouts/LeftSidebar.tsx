@@ -105,9 +105,9 @@ const SideBarContent = () => {
     <>
       <UserBox />
 
-      <div id="sidebar-menu">
+      {/* <div id="sidebar-menu">
         <AppMenu menuItems={getMenuItems()} />
-      </div>
+      </div> */}
 
       <div className="clearfix" />
     </>
