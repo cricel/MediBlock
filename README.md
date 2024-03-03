@@ -2,4 +2,4 @@
 
 Live @ mediblock.xyz
 
-Sample login: email - test@test, password -
+Sample login: email - test@test, password - 123
